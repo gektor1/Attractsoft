@@ -1,0 +1,1 @@
+SELECT user.*, (SELECT COUNT(*) FROM message WHERE message.user_id = user.id AND message.message_date_time > '2020-01-01') as messages_number FROM `user` 
