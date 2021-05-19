@@ -1,1 +1,6 @@
-SELECT user.*, (SELECT COUNT(*) FROM message WHERE message.user_id = user.id) as messages_number FROM `user` WHERE 1
+SELECT
+    u.*,
+    COUNT(m.user_id) as messages_number
+ FROM `user` u
+ LEFT JOIN message m ON m.user_id = u.id
+GROUP BY u.id
